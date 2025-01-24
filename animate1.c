@@ -19,5 +19,6 @@ int main(void)
     img_fillcircle(c2, 180, 100 + i * 5, 20 - i);
     img_write();
   }
+  printf("Hello");
   return 0;
 }
