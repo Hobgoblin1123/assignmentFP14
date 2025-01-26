@@ -5,3 +5,4 @@ void img_clear(void);
 void img_write(void);
 void img_putpixel(struct color c, int x, int y);
 void img_fillcircle(struct color c, double x, double y, double r);
+void gradation_square(struct color c, struct color d, double x, double y, double r);  //(下端の色, 上端の色, 中心x, 中心y, 一辺の長さ)
