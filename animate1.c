@@ -1,6 +1,8 @@
 	
 // animate1 --- create animation using img lib.
 #include "img.h"
+#include <stdio.h>
+#include <stdlib.h>
 
 int main(void) {
   struct color c1 = { 30, 255, 0 };
