@@ -43,13 +43,25 @@ void img_fillcircle(struct color c, double x, double y, double r) {
 }
 
 void write_U(void){
-int j;
+int j,k,l;
 struct color c1={0,0,0};
+  
   if(x==30 && x==40 && x==80 && x==90){
-  for(j=60; j<=90; ++j){
+  for(j=60; j<=150; ++j){
    img_putpixel(c1,x,j);
+    }//側部の棒部分
   }
+  if(y<=60){
+  img_fillcircle(c1,60,60,30);
+  img_fillcircle(c1,60,60,20); //円弧の部分
+   }
+  
+  for(k=30;k<=40; ++k){
+    img_putpixel(c1,k,150);
   }
+  for(l=80;l<=90; ++l){
+    img_putpixel(c1,l,150);
+  }//上部分の蓋
 }
 
 
