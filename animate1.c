@@ -21,7 +21,7 @@ int main(void)
 
     // for (int i = 0; i < steps; ++i) {
     //     img_clear();
-    //     gradation_square(c, d, 150, 100, r, i);
+    //     gradation_square(c, d, 75, 100, 35, 50, i);
     //     img_write();
     // }
 
