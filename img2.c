@@ -7,10 +7,10 @@ static unsigned char buf[HEIGHT][WIDTH][3];
 static int filecnt = 0;
 static char fname[100];
 
-void gradation_square(struct color c, struct color d, double x, double y, double r, int step)
+void gradation_square(struct color c, struct color d, double x, double y, double w, double h, int step)
 {
-    int imin = (int)(x - r / 2 - 1), imax = (int)(x + r / 2 + 1);
-    int jmin = (int)(y - r / 2 - 1), jmax = (int)(y + r / 2 + 1);
+    int imin = (int)(x - w / 2 - 1), imax = (int)(x + w / 2 + 1);
+    int jmin = (int)(y - h / 2 - 1), jmax = (int)(y + h / 2 + 1);
     int i, j;
     struct color initial_c = c;
     double n_r = (double)(d.r - c.r) / (jmax - jmin); // 始値と終値間のyの1座標辺りの色の幅
