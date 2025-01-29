@@ -53,31 +53,24 @@ void img_circle(struct color c, double x, double y, double r) {
   }
 }
 
-void write_U(void){
+void img_square(struct color c, double x, double y, double s, double t){
+int imin = (int)(x-s-1), imax=(int)(x+s+1);
+int jmin = (int)(y-t-1), jmax=(int)(y+t+1);
+int i,j;
+for(j=jmin;j<=jmax;++j){
+  for(i=imin;i<=imax;++i){
+img_putpixel(c,i,j);
+  }
+}
+}
+
+void write_U1(void){
 int x,y,j,k,l;
 struct color c1={0,0,0};
-  
- 
-  for(j=60; j<=150; ++j){
-   img_putpixel(c1,30,j);
-     img_putpixel(c1,40,j);
-     img_putpixel(c1,80,j);
-     img_putpixel(c1,90,j);
-    
-    }//側部の棒部分
-  
-  if(y<=60){
-  img_circle(c1,60,60,30);
-  img_circle(c1,60,60,20); //円弧の部分
-   }
-  
-  for(k=30;k<=40; ++k){
-    img_putpixel(c1,k,150);
-  }
-  for(l=80;l<=90; ++l){
-    img_putpixel(c1,l,150);
-  }//上部分の蓋
-}
+
+
+
+
 
 
 
