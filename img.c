@@ -57,11 +57,15 @@ void write_U(void){
 int x,y,j,k,l;
 struct color c1={0,0,0};
   
-  if(x==30 || x==40 || x==80 || x==90){
+ 
   for(j=60; j<=150; ++j){
-   img_putpixel(c1,x,j);
+   img_putpixel(c1,30,j);
+     img_putpixel(c1,40,j);
+     img_putpixel(c1,80,j);
+     img_putpixel(c1,90,j);
+    
     }//側部の棒部分
-  }
+  
   if(y<=60){
   img_circle(c1,60,60,30);
   img_circle(c1,60,60,20); //円弧の部分
