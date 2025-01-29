@@ -65,8 +65,10 @@ img_putpixel(c,i,j);
 }
 
 void write_U1(void){
-int x,y,j,k,l;
 struct color c1={0,0,0};
+img_square(c1,75,100,35,50);
+}
+
 
 
 
