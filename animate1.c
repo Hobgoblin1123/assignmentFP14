@@ -35,9 +35,20 @@ int main(void)
     {
         img_clear();
         img_fillellipse(black, 150.0, 100.0, 100.0, 60.0, M_PI / 6.0);
+        double theta = 2 * M_PI * i / steps;
+        double sx = sin(theta), cx = cos(theta);
+        double rad = 20 - 10 * sx;
+
+        double x = 150 + 100 * cx;
+        double y = 100 + 50 * sx;
+
+        // 角度angleだけ回転
+        double x_rot = x * cos(M_PI/6) - y * sin(M_PI/6);
+        double y_rot = x * sin(M_PI/6) + y * cos(M_PI/6);
+
+        img_fillcircle(black, x_rot, y_rot, rad);
         write_Uoutside();
         img_write();
     }
-
     return 0;
 }

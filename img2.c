@@ -82,3 +82,22 @@ void img_ellipse(struct color c, double x, double y, double a, double b, double 
         }
     }
 }
+
+void move_circle(struct color c, double x, double y, double a, double b, double theta, struct color d, double r)
+{
+    int imin = (int)(x - a - 1) - 20, imax = (int)(x + a + 1) + 20;
+    int jmin = (int)(y - b - 1) - 20, jmax = (int)(y + b + 1) + 20;
+    int i, j;
+    for (j = jmin; j <= jmax; ++j)
+    {
+        for (i = imin; i <= imax; ++i)
+        {
+            double term1 = pow((i - x) * cos(theta) + (j - y) * sin(theta), 2) / (a * a);
+            double term2 = pow(-(i - x) * sin(theta) + (j - y) * cos(theta), 2) / (b * b);
+            if (fabs(term1 + term2 - 1.0) < 0.01)
+            { // 境界条件を厳密に
+                img_fillcircle(d, i, j, r);
+            }
+        }
+    }
+}
