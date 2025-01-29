@@ -101,7 +101,7 @@ void img_asteroid(struct color c, double x, double y, double r)
   {
     for (i = imin; i <= imax; ++i)
     {
-      if (pow(x - i, 2 / 2.7) + pow(y - j, 2 / 2.7) <= pow(r, 2 / 2.7))
+      if (pow(i - x, 2 / 2.7) + pow(j - y, 2 / 2.7) <= pow(r, 2 / 2.7))
       {
         img_putpixel(c, i, j);
       }
@@ -120,7 +120,7 @@ void write_Uinside(void)
   struct color c2 = {255, 255, 255};
   img_square(c2, 77.5, 115, 22.5, 35);
   img_fillellipse(c2, 77.5, 80, 22.5, 20, 0);
-  img_asteroid(c2, 40, 50, 30);
+  img_asteroid(c2, 39, 49, 30);
 }
 
 void write_Eoutside(void)
