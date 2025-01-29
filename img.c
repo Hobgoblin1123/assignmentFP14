@@ -93,7 +93,7 @@ void img_square(struct color c, double x, double y, double s, double t)
 
 void write_Uoutside(void)
 {
-  struct color c1 = {0, 0, 0};
+  struct color c1 = {0, 0, 255};
   img_square(c1, 75, 100, 35, 50);
 }
 
@@ -106,7 +106,7 @@ void write_Uinside(void)
 
 void write_Eoutside(void)
 {
-  struct color c1 = {0, 0, 0};
+  struct color c1 = {0, 0, 255};
   img_square(c1, 150, 100, 30, 50);
 }
 
@@ -120,7 +120,7 @@ void write_Einside(void)
 
 void write_Coutside(void)
 {
-  struct color c1 = {0, 0, 0};
+  struct color c1 = {0, 0, 255};
   img_square(c1, 225, 100, 35, 50);
 }
 
@@ -130,4 +130,16 @@ void write_Cinside(void)
   img_suqare(c2, 235, 100, 25, 30);
   img_fillellipse(c2, 230, 130, 20, 10, 0);
   img_fillellipse(c2, 230, 70, 20, 10, 0);
+}
+
+void write_outellipse(void)
+{
+  struct color c1 = {0, 0, 255};
+  img_fillellipse(c1, 150, 100, 120, 65, 30);
+}
+
+void write_inellipse(void)
+{
+  struct color c2 = {255, 255, 255};
+  img_fillellipse(c2, 150, 100, 117, 62, 29);
 }
