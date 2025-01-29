@@ -14,3 +14,7 @@ void write_Eoutside(void);
 void write_Einside(void);
 void write_Coutside(void);
 void write_Cinside(void);
+void img_fillellipse(struct color c, double x, double y, double a, double b, double theta);
+void write_U(void);
+void write_E(void);
+void write_C(void);
