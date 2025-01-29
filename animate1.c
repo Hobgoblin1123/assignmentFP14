@@ -4,6 +4,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
+#ifndef M_PI
+#define M_PI 3.14159265358979323846
+#endif
 
 int main(void)
 {
@@ -32,7 +35,7 @@ int main(void)
     {
         img_clear();
         img_fillellipse(black, 150.0, 100.0, 100.0, 60.0, M_PI / 6.0);
-        write_Uoutside();
+        // write_Uoutside();
         img_write();
     }
 
