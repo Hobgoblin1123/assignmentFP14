@@ -34,6 +34,10 @@ int main(void)
         img_fillcircle(black, x_rot, y_rot, rad);
         write_Uoutside();
         write_Uinside();
+        write_Eoutside();
+        write_Einside();
+        write_Coutside();
+        write_Cinside();
         img_write();
     }
     return 0;
