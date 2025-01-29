@@ -10,9 +10,9 @@ int main(void)
     struct color c2 = {255, 0, 0};
     int steps = 100;
     double r = 50.0;
-    
-    struct color c = c1; 
-    struct color d = c2; 
+
+    struct color c = c1;
+    struct color d = c2;
 
     // for (int i = 0; i < steps; ++i) {
     //     img_clear();
@@ -20,12 +20,12 @@ int main(void)
     //     img_write();
     // }
 
-    for(int i= 0; i < steps; ++i){
+    for (int i = 0; i < steps; ++i)
+    {
         img_clear();
-        write_U();
+        write_Uoutside();
         img_write();
     }
 
     return 0;
 }
-
