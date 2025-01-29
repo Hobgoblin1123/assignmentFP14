@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "img.h"
+#include <math.h>
 
 static unsigned char buf[HEIGHT][WIDTH][3];
 static int filecnt = 0;
@@ -91,6 +92,23 @@ void img_square(struct color c, double x, double y, double s, double t)
   }
 }
 
+void img_asteroid(struct color c, double x, double y, double r)
+{
+  int imin = (int)(x - r - 1), imax = (int)(x + r + 1);
+  int jmin = (int)(y - r - 1), jmax = (int)(y + r + 1);
+  int i, j;
+  for (j = jmin; j <= jmax; ++j)
+  {
+    for (i = imin; i <= imax; ++i)
+    {
+      if (pow(x - i, 2 / 2.7) + pow(y - j, 2 / 2.7) <= pow(r, 2 / 2.7))
+      {
+        img_putpixel(c, i, j);
+      }
+    }
+  }
+}
+
 void write_Uoutside(void)
 {
   struct color c1 = {0, 0, 255};
@@ -102,6 +120,7 @@ void write_Uinside(void)
   struct color c2 = {255, 255, 255};
   img_square(c2, 77.5, 115, 22.5, 35);
   img_fillellipse(c2, 77.5, 80, 22.5, 20, 0);
+  img_asteroid(c2, 40, 50, 30);
 }
 
 void write_Eoutside(void)
