@@ -57,7 +57,7 @@ void write_U(void){
 int x,y,j,k,l;
 struct color c1={0,0,0};
   
-  if(x==30 && x==40 && x==80 && x==90){
+  if(x==30 || x==40 || x==80 || x==90){
   for(j=60; j<=150; ++j){
    img_putpixel(c1,x,j);
     }//側部の棒部分
