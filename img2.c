@@ -75,7 +75,7 @@ void img_ellipse(struct color c, double x, double y, double a, double b, double 
         {
             double term1 = pow((i - x) * cos(theta) + (j - y) * sin(theta), 2) / (a * a);
             double term2 = pow(-(i - x) * sin(theta) + (j - y) * cos(theta), 2) / (b * b);
-            if (0.90 < (term1 + term2 ) && (term1 + term2 ) <= 1.00)
+            if (0.85 < (term1 + term2 ) && (term1 + term2 ) <= 1.00)
             { // 境界条件を厳密に
                 img_putpixel(c, i, j);
             }
