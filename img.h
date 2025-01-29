@@ -20,3 +20,5 @@ void write_Cinside(void);
 void img_ellipse(struct color c, double x, double y, double a, double b, double theta);
 void img_fillellipse(struct color c, double x, double y, double a, double b, double theta);
 void move_circle(struct color c, double x, double y, double a, double b, double theta, struct color d, double r);
+void write_outellipse(void);
+void write_inellipse(void);
