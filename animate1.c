@@ -34,6 +34,12 @@ int main(void)
     for (int i = 0; i < steps; ++i)
     {
         img_clear();
+        write_Uoutside();
+        write_Uinside();
+        write_Eoutside();
+        write_Einside();
+        write_Coutside();
+        write_Cinside();
         img_ellipse(black, 150.0, 100.0, 100.0, 60.0, M_PI / 6.0);
         double theta = 2 * M_PI * i / steps;
         double sx = sin(theta), cx = cos(theta);
@@ -47,10 +53,10 @@ int main(void)
         double y_shifted = y - 100;
 
         // 回転角度を決定
-        double x_rot = x_shifted * cos(M_PI/6) - y_shifted * sin(M_PI/6);
-        double y_rot = x_shifted * sin(M_PI/6) + y_shifted * cos(M_PI/6);
+        double x_rot = x_shifted * cos(M_PI / 6) - y_shifted * sin(M_PI / 6);
+        double y_rot = x_shifted * sin(M_PI / 6) + y_shifted * cos(M_PI / 6);
 
-        //回転の中心を楕円の中心に
+        // 回転の中心を楕円の中心に
         double x_new = x_rot + 150;
         double y_new = y_rot + 100;
 
