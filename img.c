@@ -92,7 +92,7 @@ void img_square(struct color c, double x, double y, double s, double t)
   }
 }
 
-void img_asteroid(struct color c, double x, double y, double r)
+void img_asteroid1(struct color c, double x, double y, double r)
 {
   int imin = (int)(x - r - 1), imax = (int)(x + r + 1);
   int jmin = (int)(y - r - 1), jmax = (int)(y + r + 1);
@@ -109,10 +109,21 @@ void img_asteroid(struct color c, double x, double y, double r)
   }
 }
 
-void write_Uoutside(void)
+void img_asteroid2(struct color c, double x, double y, double r)
 {
-  struct color c1 = {0, 0, 255};
-  img_square(c1, 75, 100, 35, 50);
+  int imin = (int)(-x - r - 1), imax = (int)(-x + r + 1);
+  int jmin = (int)(y - r - 1), jmax = (int)(y + r + 1);
+  int i, j;
+  for (j = jmin; j <= jmax; ++j)
+  {
+    for (i = imin; i <= imax; ++i)
+    {
+      if (pow(i - x, 2 / 2.7) + pow(j - y, 2 / 2.7) <= pow(r, 2 / 2.7))
+      {
+        img_putpixel(c, i, j);
+      }
+    }
+  }
 }
 
 void write_Uinside(void)
@@ -120,13 +131,12 @@ void write_Uinside(void)
   struct color c2 = {255, 255, 255};
   img_square(c2, 77.5, 115, 22.5, 35);
   img_fillellipse(c2, 77.5, 80, 22.5, 20, 0);
-  img_asteroid(c2, 39, 49, 30);
+  img_asteroid1(c2, 39, 49, 30);
 }
 
 void write_Eoutside(void)
 {
-  struct color c1 = {0, 0, 255};
-  img_square(c1, 150, 100, 30, 50);
+  // graduation_square(c1, 150, 100, 30, 50);
 }
 
 void write_Einside(void)
@@ -139,8 +149,7 @@ void write_Einside(void)
 
 void write_Coutside(void)
 {
-  struct color c1 = {0, 0, 255};
-  img_square(c1, 225, 100, 35, 50);
+  // graduation_square(c1, 225, 100, 35, 50);
 }
 
 void write_Cinside(void)

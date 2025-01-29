@@ -10,14 +10,9 @@
 
 int main(void)
 {
-    struct color c1 = {0, 255, 0};
-    struct color c2 = {255, 0, 0};
     struct color black = {0, 0, 0};
     int steps = 100;
     double r = 50.0;
-
-    struct color c = c1;
-    struct color d = c2;
 
     // for (int i = 0; i < steps; ++i) {
     //     img_clear();
@@ -34,7 +29,9 @@ int main(void)
     for (int i = 0; i < steps; ++i)
     {
         img_clear();
-        write_Uoutside();
+        struct color c1 = {35, 41, 108};
+        struct color c2 = {114, 159, 252};
+        gradation_square(c1, c2, 75, 100, 35, 50, i);
         write_Uinside();
         write_Eoutside();
         write_Einside();
