@@ -127,7 +127,7 @@ void write_Coutside(void)
 void write_Cinside(void)
 {
   struct color c2 = {255, 255, 255};
-  img_suqare(c2, 235, 100, 25, 30);
+  img_square(c2, 235, 100, 25, 30);
   img_fillellipse(c2, 230, 130, 20, 10, 0);
   img_fillellipse(c2, 230, 70, 20, 10, 0);
 }

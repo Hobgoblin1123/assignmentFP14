@@ -42,12 +42,17 @@ int main(void)
         double x = 150 + 100 * cx;
         double y = 100 + 50 * sx;
 
-        // 角度angleだけ回転
-        double x_rot = x * cos(M_PI/6) - y * sin(M_PI/6);
-        double y_rot = x * sin(M_PI/6) + y * cos(M_PI/6);
+        // (150,100) を中心に回転
+        double x_shifted = x - 150;
+        double y_shifted = y - 100;
 
-        img_fillcircle(black, x_rot, y_rot, rad);
-        write_Uoutside();
+        double x_rot = x_shifted * cos(M_PI/6) - y_shifted * sin(M_PI/6);
+        double y_rot = x_shifted * sin(M_PI/6) + y_shifted * cos(M_PI/6);
+
+        double x_new = x_rot + 150;
+        double y_new = y_rot + 100;
+
+        img_fillcircle(c2, x_new, y_new, rad);
         img_write();
     }
     return 0;
