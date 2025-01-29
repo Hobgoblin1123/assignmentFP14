@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <math.h>
 #include "img.h"
 
 static unsigned char buf[HEIGHT][WIDTH][3];
@@ -26,6 +27,32 @@ void gradation_square(struct color c, struct color d, double x, double y, double
         c.b = initial_c.b + (shifted_j - jmin) * n_b;
         for(i = imin; i <= imax; ++i) {
             img_putpixel(c, i, j);
+        }
+    }
+}
+
+// void img_fillellipse(struct color c, double x, double y, double a, double b, double theta){
+//   int imin = (int)(x - a - 1), imax = (int)(x + a + 1);
+//   int jmin = (int)(y - b - 1), jmax = (int)(y + b + 1);
+//   int i, j;
+//   for(j = jmin; j <= jmax; ++j) {
+//     for(i = imin; i <= imax; ++i) {
+//       if(pow((i-x)*cos(theta)+(j-y)*sin(theta),2)/(a*a)+pow(-(i-x)*sin(theta)+(j-y)*cos(theta),2)/(b*b)==1.0) { img_putpixel(c, i, j); }
+//     }
+//   }
+// }
+
+void img_fillellipse(struct color c, double x, double y, double a, double b, double theta) {
+    int imin = (int)(x - a - 1)-20, imax = (int)(x + a + 1)+20;
+    int jmin = (int)(y - b - 1)-20, jmax = (int)(y + b + 1)+20;
+    int i, j;
+    for(j = jmin; j <= jmax; ++j) {
+        for(i = imin; i <= imax; ++i) {
+            double term1 = pow((i - x) * cos(theta) + (j - y) * sin(theta), 2) / (a * a);
+            double term2 = pow(-(i - x) * sin(theta) + (j - y) * cos(theta), 2) / (b * b);
+            if(fabs(term1 + term2 - 1.0) < 0.01) { // 境界条件を厳密に
+                img_putpixel(c, i, j);
+            }
         }
     }
 }
