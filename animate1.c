@@ -11,12 +11,13 @@
 int main(void)
 {
     struct color black = {0, 0, 0};
-    int steps = 100;
-    double r = 50.0;
+    int steps = 50;
+    struct color c1 = {35, 41, 108};
+    struct color c2 = {114, 159, 252};
 
     // for (int i = 0; i < steps; ++i) {
     //     img_clear();
-    //     gradation_square(c, d, 75, 100, 35, 50, i);
+    //     gradation_square(c1, c2, 75, 100, 35, 50, i);
     //     img_write();
     // }
 
@@ -29,14 +30,7 @@ int main(void)
     for (int i = 0; i < steps; ++i)
     {
         img_clear();
-        struct color c1 = {35, 41, 108};
-        struct color c2 = {114, 159, 252};
         gradation_square(c1, c2, 75, 100, 35, 50, i);
-        write_Uinside();
-        write_Eoutside();
-        write_Einside();
-        write_Coutside();
-        write_Cinside();
         img_ellipse(black, 150.0, 100.0, 100.0, 60.0, M_PI / 6.0);
         double theta = 2 * M_PI * i / steps;
         double sx = sin(theta), cx = cos(theta);
@@ -45,9 +39,9 @@ int main(void)
         double x = 150 + 100 * cx;
         double y = 100 + 50 * sx;
 
-        // (150,100) を中心
-        double x_shifted = x - 150;
-        double y_shifted = y - 100;
+         // (150,100) を中心
+         double x_shifted = x - 150;
+         double y_shifted = y - 100;
 
         // 回転角度を決定
         double x_rot = x_shifted * cos(M_PI / 6) - y_shifted * sin(M_PI / 6);

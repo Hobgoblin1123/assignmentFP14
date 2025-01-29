@@ -128,10 +128,7 @@ void img_asteroid2(struct color c, double x, double y, double r)
 
 void write_Uinside(void)
 {
-  struct color c2 = {255, 255, 255};
-  img_square(c2, 77.5, 115, 22.5, 35);
-  img_fillellipse(c2, 77.5, 80, 22.5, 20, 0);
-  img_asteroid1(c2, 39, 49, 30);
+
 }
 
 void write_Eoutside(void)
