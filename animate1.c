@@ -14,9 +14,15 @@ int main(void)
     struct color c = c1; 
     struct color d = c2; 
 
-    for (int i = 0; i < steps; ++i) {
+    // for (int i = 0; i < steps; ++i) {
+    //     img_clear();
+    //     gradation_square(c, d, 150, 100, r, i);
+    //     img_write();
+    // }
+
+    for(int i= 0; i < steps; ++i){
         img_clear();
-        gradation_square(c, d, 150, 100, r, i);
+        write_U();
         img_write();
     }
 

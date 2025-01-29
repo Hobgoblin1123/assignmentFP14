@@ -42,8 +42,19 @@ void img_fillcircle(struct color c, double x, double y, double r) {
   }
 }
 
+void img_circle(struct color c, double x, double y, double r) {
+  int imin = (int)(x - r - 1), imax = (int)(x + r + 1);
+  int jmin = (int)(y - r - 1), jmax = (int)(y + r + 1);
+  int i, j;
+  for(j = jmin; j <= jmax; ++j) {
+    for(i = imin; i <= imax; ++i) {
+      if((x-i)*(x-i) + (y-j)*(y-j) ==r*r) { img_putpixel(c, i, j); }
+    }
+  }
+}
+
 void write_U(void){
-int j,k,l;
+int x,y,j,k,l;
 struct color c1={0,0,0};
   
   if(x==30 && x==40 && x==80 && x==90){
@@ -52,8 +63,8 @@ struct color c1={0,0,0};
     }//側部の棒部分
   }
   if(y<=60){
-  img_fillcircle(c1,60,60,30);
-  img_fillcircle(c1,60,60,20); //円弧の部分
+  img_circle(c1,60,60,30);
+  img_circle(c1,60,60,20); //円弧の部分
    }
   
   for(k=30;k<=40; ++k){
